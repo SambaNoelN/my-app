@@ -1,4 +1,5 @@
 import { SymbolView } from 'expo-symbols';
+import { router } from 'expo-router';
 import { Linking, Pressable, ScrollView, StyleSheet, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
@@ -137,7 +138,7 @@ export default function HomeScreen() {
               icon="link"
               label="View work"
               secondary
-              onPress={() => Linking.openURL('https://github.com')}
+              onPress={() => router.push('/gallery')}
             />
           </View>
 

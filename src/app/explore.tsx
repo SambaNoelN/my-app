@@ -1,4 +1,5 @@
 import { SymbolView } from 'expo-symbols';
+import { router } from 'expo-router';
 import { Linking, Pressable, ScrollView, StyleSheet, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
@@ -85,6 +86,18 @@ export default function AboutScreen() {
             ))}
           </View>
         </View>
+
+        <Pressable
+          accessibilityRole="button"
+          onPress={() => router.push('/gallery')}
+          style={({ pressed }) => [styles.galleryLink, pressed && styles.pressed]}>
+          <ThemedText style={styles.galleryLinkText}>See selected work</ThemedText>
+          <SymbolView
+            name={{ ios: 'arrow.right', android: 'arrow_right', web: 'arrow_right' }}
+            tintColor="#F7F5EF"
+            size={15}
+          />
+        </Pressable>
       </ThemedView>
     </ScrollView>
   );
@@ -138,5 +151,18 @@ const styles = StyleSheet.create({
     borderBottomColor: '#B8B5AE',
   },
   linkText: { fontSize: 17, fontWeight: '700' },
+  galleryLink: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    alignSelf: 'flex-start',
+    gap: Spacing.two,
+    marginHorizontal: Spacing.four,
+    marginBottom: Spacing.five,
+    paddingHorizontal: Spacing.three,
+    minHeight: 46,
+    borderRadius: 10,
+    backgroundColor: '#D76A45',
+  },
+  galleryLinkText: { color: '#F7F5EF', fontWeight: '800' },
   pressed: { opacity: 0.7 },
 });
