@@ -266,6 +266,17 @@ export default function HomeScreen() {
                 size={16}
               />
             </Pressable>
+            <Pressable
+              accessibilityRole="button"
+              onPress={() => router.push('/explore')}
+              style={({ pressed }) => [styles.cvShortcut, pressed && styles.pressed]}>
+              <ThemedText style={styles.cvShortcutText}>Get my CV</ThemedText>
+              <SymbolView
+                name={{ ios: 'doc.text', android: 'description', web: 'link' }}
+                tintColor={theme.text}
+                size={16}
+              />
+            </Pressable>
           </ThemedView>
 
           <View style={styles.footer}>
@@ -550,6 +561,18 @@ const styles = StyleSheet.create({
     color: '#2E6B45',
     fontWeight: '800',
   },
+  cvShortcut: {
+    alignSelf: 'flex-start',
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: Spacing.two,
+    minHeight: 42,
+    paddingHorizontal: Spacing.three,
+    borderRadius: 10,
+    borderWidth: 1,
+    borderColor: '#B8B5AE',
+  },
+  cvShortcutText: { fontWeight: '800' },
   skillText: {
     fontWeight: '700',
   },
