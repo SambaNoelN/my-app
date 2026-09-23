@@ -15,6 +15,7 @@ const profile = {
   location: 'Available for thoughtful work',
   bio: 'I design and build dependable digital products, from the first sharp idea to the last polished interaction.',
   email: 'sambanoelnformi@gmail.com',
+  whatsapp: 'https://wa.me/237670763266',
 };
 
 const skills = ['TypeScript', 'React', 'Node.js', 'Product thinking'];
@@ -251,6 +252,17 @@ export default function HomeScreen() {
               <SymbolView
                 name={{ ios: 'arrow.right', android: 'arrow_right', web: 'arrow_right' }}
                 tintColor="#F7F5EF"
+                size={16}
+              />
+            </Pressable>
+            <Pressable
+              accessibilityRole="button"
+              onPress={() => Linking.openURL(profile.whatsapp)}
+              style={({ pressed }) => [styles.whatsappButton, pressed && styles.pressed]}>
+              <ThemedText style={styles.whatsappButtonText}>Message on WhatsApp</ThemedText>
+              <SymbolView
+                name={{ ios: 'message', android: 'chat', web: 'message' }}
+                tintColor="#2E6B45"
                 size={16}
               />
             </Pressable>
@@ -520,6 +532,22 @@ const styles = StyleSheet.create({
   },
   contactButtonText: {
     color: '#F7F5EF',
+    fontWeight: '800',
+  },
+  whatsappButton: {
+    alignSelf: 'flex-start',
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: Spacing.two,
+    minHeight: 42,
+    paddingHorizontal: Spacing.three,
+    borderRadius: 10,
+    borderWidth: 1,
+    borderColor: '#78A887',
+    backgroundColor: '#E4F1E8',
+  },
+  whatsappButtonText: {
+    color: '#2E6B45',
     fontWeight: '800',
   },
   skillText: {

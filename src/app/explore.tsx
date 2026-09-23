@@ -77,6 +77,7 @@ export default function AboutScreen() {
             {[
               ['GitHub', 'https://github.com'],
               ['LinkedIn', 'https://linkedin.com'],
+              ['WhatsApp', 'https://wa.me/237670763266'],
               ['Email', 'mailto:sambanoelnformi@gmail.com'],
             ].map(([label, url]) => (
               <Pressable key={label} onPress={() => Linking.openURL(url)} style={({ pressed }) => [styles.link, pressed && styles.pressed]}>
